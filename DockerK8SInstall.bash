@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get update
 
 sudo apt-get install -y \
@@ -16,7 +18,7 @@ sudo add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
-sudo pt-get update
+sudo apt-get update
 
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
@@ -30,7 +32,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 sudo systemctl enable docker
 #sudo systemctl start docker
-sudo systemctl status docker
+sudo systemctl status docker --no-pager
 
 #sudo apt-get install curl
 
@@ -41,7 +43,3 @@ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt-get install -y kubeadm kubelet kubectl
 sudo apt-mark hold kubeadm kubelet kubectl
 kubeadm version
-
-# To clean-up
-#apt-get purge docker-ce docker-ce-cli containerd.io
-#rm -rf /var/lib/docker
